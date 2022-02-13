@@ -124,14 +124,19 @@ function init() {
         // .then(data => {
         //     return console.log(data);
         // })
-        // .then(console.log(questions.license))
-        // .then(renderLicenseBadge)
-        // .then(renderLicenseLink)
-        // .then(renderLicenseSection)
-        .then(data => {
-            console.log(generateMarkdown(data))
-            console.log("Date of license: " + data.license);
-            return generateMarkdown(data);
+        // .then(license => {
+        //     return renderLicenseBadge(license);
+        // })
+        // .then(renderLicenseLink(questions.license))
+        // .then(renderLicenseSection(questions.license))
+        .then(rest => {
+            // console.log(generateMarkdown(data))
+            // const {license, ...rest} = data;
+            // renderLicenseBadge(license)
+            // renderLicenseLink(license)
+            // renderLicenseSection(license)
+            console.log("Date of license: " + rest.license);
+            return generateMarkdown(rest);
             // return generateMarkdown(data);
         })
         .then(info => {
