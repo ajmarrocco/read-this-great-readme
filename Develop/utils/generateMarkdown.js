@@ -33,6 +33,7 @@ ${data.install}
 ${data.usage}
 
 ## License
+This project is under the ${data.license} license.
 
 ## Contributions
 ${data.contribution}
