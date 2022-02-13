@@ -19,26 +19,65 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'color',
-        message: 'What is your favorite color?',
-        // validate: nameInput => {
-        //     if (nameInput) {
-        //         return true;
-        //     } else {
-        //         console.log('Please enter your project name!');
-        //         return false;
-        //     }       
-        // }
+        name: 'description',
+        message: 'Please write a short description of your project (Required)',
+        validate: descriptionInput => {
+            if (descriptionInput) {
+                return true;
+            } else {
+                console.log('Please write a short description of your project!');
+                return false;
+            }       
+        }
     },
     {
         type: 'input',
-        name: 'flavor',
-        message: 'What is your favorite flavor?',
-        validate: nameInput => {
-            if (nameInput) {
+        name: 'install',
+        message: 'What command should be run to install dependencies?',
+        validate: installInput => {
+            if (installInput) {
                 return true;
             } else {
-                console.log('Please enter your project name!');
+                console.log('Please enter command should be run to install dependencies!');
+                return false;
+            }       
+        }
+    },
+    {
+        type: 'input',
+        name: 'usage',
+        message: 'What does the user need to know about using the repo?',
+        validate: usageInput => {
+            if (usageInput) {
+                return true;
+            } else {
+                console.log('Please enter what the user need to know about using the repo!');
+                return false;
+            }       
+        }
+    },
+    {
+        type: 'input',
+        name: 'contribution',
+        message: 'What does the user need to know about contributing to the repo?',
+        validate: contributionInput => {
+            if (contributionInput) {
+                return true;
+            } else {
+                console.log('Please enter what the user need to know about contributing to the repo!');
+                return false;
+            }       
+        }
+    },
+    {
+        type: 'input',
+        name: 'test',
+        message: 'What command should be run to run tests?',
+        validate: testInput => {
+            if (testInput) {
+                return true;
+            } else {
+                console.log('Please enter command should be run to run tests!');
                 return false;
             }       
         }
