@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const { renderLicenseBadge, renderLicenseLink , renderLicenseSection, generateMarkdown } = require('./utils/generateMarkdown.js');
+// const generateMarkdown = require('./utils/generateMarkdown.js');
 const fs = require('fs');
 // TODO: Create an array of questions for user input
 const questions = [
@@ -123,8 +124,13 @@ function init() {
         // .then(data => {
         //     return console.log(data);
         // })
+        // .then(console.log(questions.license))
+        // .then(renderLicenseBadge)
+        // .then(renderLicenseLink)
+        // .then(renderLicenseSection)
         .then(data => {
             console.log(generateMarkdown(data))
+            console.log("Date of license: " + data.license);
             return generateMarkdown(data);
             // return generateMarkdown(data);
         })
