@@ -20,7 +20,20 @@ const questions = [
     {
         type: 'input',
         name: 'color',
-        message: 'What is your favorite color>',
+        message: 'What is your favorite color?',
+        // validate: nameInput => {
+        //     if (nameInput) {
+        //         return true;
+        //     } else {
+        //         console.log('Please enter your project name!');
+        //         return false;
+        //     }       
+        // }
+    },
+    {
+        type: 'input',
+        name: 'flavor',
+        message: 'What is your favorite flavor?',
         validate: nameInput => {
             if (nameInput) {
                 return true;
@@ -52,7 +65,7 @@ function writeToFile(fileName, data) {
             // if everything went well, resolve the Promise and send the successful data to the `.then()` method
             resolve({
                 ok: true,
-                message: 'File cnode inreated!'
+                message: 'File created!'
             });
         });
     });
@@ -65,17 +78,21 @@ function init() {
         //     return console.log(data);
         // })
         .then(data => {
-            console.log(data);
             console.log(generateMarkdown(data))
             return generateMarkdown(data);
             // return generateMarkdown(data);
         })
         .then(info => {
-            return writeToFile(info);
+            //splits info string
+            const titleNameUntrimmed = info.split('#');
+            //trims 2nd element of titleNameUntrimmed and sets to title name
+            const titleName = titleNameUntrimmed[1].trim();
+            //goes to return write file with titleName and info 
+            return writeToFile(titleName, info);
         })
-        // .catch(err => {
-        //     console.log(err);
-        // });
+        .catch(err => {
+            console.log(err);
+        });
 }
 
 // Function call to initialize app

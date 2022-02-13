@@ -16,9 +16,9 @@ function generateMarkdown(data) {
   // const{title} = data;
   return `# ${data.name}
 
-          # ${data.color}
+## ${data.color}
 
-          Hello!!!!
+## ${data.flavor}
 
 `;
 }
