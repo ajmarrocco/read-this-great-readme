@@ -7,6 +7,19 @@ const fs = require('fs');
 const questions = [
     {
         type: 'input',
+        name: 'username',
+        message: 'What is your GitHub username? (Required)',
+        validate: usernameInput => {
+            if (usernameInput) {
+                return true;
+            } else {
+                console.log('Please enter your GitHub username!');
+                return false;
+            }       
+        }
+    },
+    {
+        type: 'input',
         name: 'name',
         message: 'What is your project name? (Required)',
         validate: nameInput => {

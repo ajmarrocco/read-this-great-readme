@@ -143,9 +143,12 @@ ${data.contribution}
 ${renderLicenseSection(license)}  
 
 ## Tests
-${data.test}
+
+To run a test, run the following command: ${data.test}
 
 ## Questions
+
+If you have any questions about opening an issue or the repository itself, please contact me at (insert email here).  Please visit https://github.com/${data.username} for more of my projects!
 
 `;
 }
