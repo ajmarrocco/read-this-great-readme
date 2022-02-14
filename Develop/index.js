@@ -92,9 +92,7 @@ const questions = [
     }
 ];
 
-const promptUser = () => {
-    return inquirer.prompt(questions);
-}
+const promptUser = () => inquirer.prompt(questions);
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
@@ -121,22 +119,15 @@ function writeToFile(fileName, data) {
 // TODO: Create a function to initialize app
 function init() {
     promptUser()
-        // .then(data => {
-        //     return console.log(data);
-        // })
-        // .then(license => {
-        //     return renderLicenseBadge(license);
-        // })
-        // .then(renderLicenseLink(questions.license))
-        // .then(renderLicenseSection(questions.license))
-        .then(rest => {
+        .then(data => {
             // console.log(generateMarkdown(data))
-            // const {license, ...rest} = data;
-            // renderLicenseBadge(license)
+            const {license, ...rest} = data;
+            renderLicenseBadge(license);
             // renderLicenseLink(license)
             // renderLicenseSection(license)
-            console.log("Date of license: " + rest.license);
-            return generateMarkdown(rest);
+            console.log(license);
+            console.log(renderLicenseBadge(license));
+            return generateMarkdown(rest,license);
             // return generateMarkdown(data);
         })
         .then(info => {
