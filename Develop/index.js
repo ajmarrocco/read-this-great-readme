@@ -123,8 +123,8 @@ function init() {
             // console.log(generateMarkdown(data))
             const {license, ...rest} = data;
             renderLicenseBadge(license);
-            // renderLicenseLink(license)
-            // renderLicenseSection(license)
+            renderLicenseLink(license)
+            renderLicenseSection(license)
             console.log(license);
             console.log(renderLicenseBadge(license));
             return generateMarkdown(rest,license);

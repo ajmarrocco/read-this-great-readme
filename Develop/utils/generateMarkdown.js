@@ -114,6 +114,7 @@ function generateMarkdown(data,license) {
   return `# ${data.name}
 
 ## Badge
+${renderLicenseLink(license)}
 ${renderLicenseBadge(license)}
 
 ## Description
@@ -137,7 +138,7 @@ ${data.usage}
 ${data.contribution}
 
 ## License
-
+${renderLicenseSection(license)}
 
 ## Tests
 ${data.test}
