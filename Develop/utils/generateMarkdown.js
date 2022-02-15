@@ -124,7 +124,7 @@ ${data.description}
 ## Table of Contents
 * [Installation](#installation)
 * [Usage](#usage)${renderLicenseTable(license)}
-* [Contribution](#contributions)
+* [Contributing](#contributing)
 * [Tests](#tests)
 * [Questions](#questions)
 
@@ -134,10 +134,10 @@ ${data.install}
 ## Usage
 ${data.usage}
 
-## Contributions
-${data.contribution}
+${renderLicenseSection(license)} 
 
-${renderLicenseSection(license)}  
+## Contributing
+${data.contribution}
 
 ## Tests
 
