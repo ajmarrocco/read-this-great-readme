@@ -73,7 +73,7 @@ function renderLicenseLink(license) {
   }
 }
 
-// adds license link to the table of contents.  
+// Adds license link to the table of contents.  
 // If there is no license, return an empty string
 const renderLicenseTable = license => license ==='None' ? "": `
 * [License](#license)`;
