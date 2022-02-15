@@ -73,6 +73,11 @@ function renderLicenseLink(license) {
   }
 }
 
+// adds license link to the table of contents.  
+// If there is no license, return an empty string
+const renderLicenseTable = license => license ==='None' ? "": `
+* [License](#license)`;
+
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
@@ -124,12 +129,11 @@ ${renderLicenseLink(license)}${renderLicenseBadge(license)}
 ${data.description}
 
 ## Table of Contents
-- [Installation](#installation)
-- [Usage](#Usage)
-- [License](#License)
-- [Contribution](#Contributions)
-- [Tests](#Tests)
-- [Questions](#Questions)
+* [Installation](#installation)
+* [Usage](#usage)${renderLicenseTable(license)}
+* [Contribution](#contributions)
+* [Tests](#tests)
+* [Questions](#questions)
 
 ## Installation
 ${data.install}
@@ -153,4 +157,4 @@ If you have any questions about opening an issue or the repository itself, pleas
 `;
 }
 
-module.exports = {renderLicenseBadge, renderLicenseLink, renderLicenseSection, generateMarkdown};
+module.exports = {renderLicenseBadge, renderLicenseLink, renderLicenseTable, renderLicenseSection, generateMarkdown};
