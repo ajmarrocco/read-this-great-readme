@@ -1,9 +1,8 @@
-// TODO: Include packages needed for this application
+// Include packages needed for this application
 const inquirer = require('inquirer');
 const { renderLicenseBadge, renderLicenseLink , renderLicenseTable, renderLicenseSection, generateMarkdown } = require('./utils/generateMarkdown.js');
-// const generateMarkdown = require('./utils/generateMarkdown.js');
 const fs = require('fs');
-// TODO: Create an array of questions for user input
+// Create an array of questions for user input
 const questions = [
     {
         type: 'input',
@@ -60,7 +59,7 @@ const questions = [
     {
         type: 'input',
         name: 'install',
-        message: 'What command should be run to install dependencies?',
+        message: 'What command should be run to install dependencies? (Required)',
         validate: installInput => {
             if (installInput) {
                 return true;
@@ -73,7 +72,7 @@ const questions = [
     {
         type: 'input',
         name: 'usage',
-        message: 'What does the user need to know about using the repo?',
+        message: 'What does the user need to know about using the repo? (Required)',
         validate: usageInput => {
             if (usageInput) {
                 return true;
@@ -93,7 +92,7 @@ const questions = [
     {
         type: 'input',
         name: 'contribution',
-        message: 'What does the user need to know about contributing to the repo?',
+        message: 'What does the user need to know about contributing to the repo? (Required)',
         validate: contributionInput => {
             if (contributionInput) {
                 return true;
@@ -106,7 +105,7 @@ const questions = [
     {
         type: 'input',
         name: 'test',
-        message: 'What command should be run to run tests?',
+        message: 'What command should be run to run tests? (Required)',
         validate: testInput => {
             if (testInput) {
                 return true;
@@ -120,13 +119,12 @@ const questions = [
 
 const promptUser = () => inquirer.prompt(questions);
 
-// TODO: Create a function to write README file
+// Create a function to write README file
 function writeToFile(fileName, data) {
     return new Promise((resolve, reject) => {
         fs.writeFile(`./dist/${fileName}.md`, data, err => {
             // if there's an error, reject the Promise and send the error to the Promise's `.catch()` method
             if (err) {
-                console.log("Oh no!!!")
                 reject(err);
 
                 // return out of the function here to make sure the Promise doesn't accidentally execute the resolve() function as well
@@ -142,24 +140,23 @@ function writeToFile(fileName, data) {
     });
 }
 
-// TODO: Create a function to initialize app
+// Create a function to initialize app
 function init() {
     promptUser()
         .then(data => {
-            // console.log(generateMarkdown(data))
+            // destructs data into license and the rest of data
             const {license, ...rest} = data;
+            //calls the license functions in generateMarkdown.js
             renderLicenseBadge(license);
             renderLicenseLink(license)
             renderLicenseTable(license)
             renderLicenseSection(license)
-            console.log(license);
-            console.log(renderLicenseBadge(license));
+            //runs and returns the generateMarkdown function
             return generateMarkdown(rest,license);
-            // return generateMarkdown(data);
         })
         .then(info => {
             //splits info string
-            const titleNameUntrimmed = info.split('#');
+            const titleNameUntrimmed = info.split(' ');
             //trims 2nd element of titleNameUntrimmed and sets to title name
             const titleName = titleNameUntrimmed[1].trim();
             //goes to return write file with titleName and info 
