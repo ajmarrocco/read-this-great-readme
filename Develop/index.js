@@ -156,9 +156,13 @@ function init() {
         })
         .then(info => {
             //splits info string
-            const titleNameUntrimmed = info.split(' ');
+            const titleNameUntrimmed = info.split('  ');
             //trims 2nd element of titleNameUntrimmed and sets to title name
-            const titleName = titleNameUntrimmed[1].trim();
+            const titleNameTrimmed = titleNameUntrimmed[0].trim();
+            console.log("file: " + titleNameTrimmed)
+            const titleNameSplit = titleNameTrimmed.split('#');
+            const titleName = titleNameSplit[1].trim();
+            console.log("file: " + titleName)
             //goes to return write file with titleName and info 
             return writeToFile(titleName, info);
         })
