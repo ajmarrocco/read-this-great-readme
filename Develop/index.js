@@ -134,7 +134,7 @@ function writeToFile(fileName, data) {
             // if everything went well, resolve the Promise and send the successful data to the `.then()` method
             resolve({
                 ok: true,
-                message: 'File created!'
+                message: 'ReadMe created!'
             });
         });
     });
@@ -161,6 +161,9 @@ function init() {
             const titleName = titleNameUntrimmed[1].trim();
             //goes to return write file with titleName and info 
             return writeToFile(titleName, info);
+        })
+        .then(writeToFile => {
+            console.log(writeToFile.message);
         })
         .catch(err => {
             console.log(err);
