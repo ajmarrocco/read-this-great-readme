@@ -16,7 +16,7 @@ This application allows you to create a professional README for your new project
 Please click on following link to watch the video https://drive.google.com/file/d/1-V_Kcgu3iNlZIBqbxaRGQTxgxT9UxuHI/view?usp=sharing
 
 ## Installation
-Please install the NPM using "npm i"
+Please install the inquirer using "npm install inquirer"
 
 ## Usage
 All dependencies must be install prior to using application.  Please make sure you are in the Develop folder when run the code
