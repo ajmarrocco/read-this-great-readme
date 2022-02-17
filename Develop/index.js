@@ -157,12 +157,12 @@ function init() {
         .then(info => {
             //splits info string
             const titleNameUntrimmed = info.split('  ');
-            //trims 2nd element of titleNameUntrimmed and sets to title name
+            //trims 1st element of titleNameUntrimmed and sets to title name
             const titleNameTrimmed = titleNameUntrimmed[0].trim();
-            console.log("file: " + titleNameTrimmed)
+            //removes splits stirng my hashtag
             const titleNameSplit = titleNameTrimmed.split('#');
+            //takes second element for the title name
             const titleName = titleNameSplit[1].trim();
-            console.log("file: " + titleName)
             //goes to return write file with titleName and info 
             return writeToFile(titleName, info);
         })
